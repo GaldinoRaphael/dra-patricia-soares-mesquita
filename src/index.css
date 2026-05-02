@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,700;1,400&family=Manrope:wght@600;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Noto Serif", serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-label: "Manrope", sans-serif;
+
+  --color-primary: #4a6457;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #a8c5b5;
+  --color-on-primary-container: #385246;
+  
+  --color-secondary: #79564f;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #fed0c6;
+  --color-on-secondary-container: #79574f;
+  
+  --color-tertiary: #386663;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #97c7c3;
+  --color-on-tertiary-container: #255451;
+
+  --color-surface: #fcf9f4;
+  --color-on-surface: #1c1c19;
+  --color-surface-variant: #e5e2dd;
+  --color-on-surface-variant: #424844;
+  
+  --color-background: #fcf9f4;
+  --color-on-background: #1c1c19;
+
+  --radius-editorial: 48px;
+  --radius-pill: 9999px;
+  
+  --spacing-section: 160px;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-surface font-sans;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.hero-pattern {
+  background-image: radial-gradient(circle at 20% 30%, rgba(168, 197, 181, 0.2) 0%, transparent 40%),
+                    radial-gradient(circle at 80% 70%, rgba(212, 169, 160, 0.15) 0%, transparent 40%);
+}
+
+.photo-frame::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: -20px;
+  bottom: -20px;
+  border: 1px solid var(--color-primary);
+  border-radius: 9999px;
+  z-index: -1;
+  transition: all 0.5s ease;
+}
+
+.photo-frame:hover::after {
+  transform: translate(-10px, -10px);
+}
+
